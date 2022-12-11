@@ -9,6 +9,8 @@ class App {
     this.app = express();
 
     this.config();
+
+    this.app.get('/', (_req, res) => res.json({ message: 'Ok' }));
   }
 
   private config(): void {
