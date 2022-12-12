@@ -44,7 +44,7 @@ const Login: React.FC = () => {
               <input
                 id="email"
                 value={email}
-                type="text"
+                type="email"
                 autoComplete="off"
                 spellCheck="false"
                 placeholder={'Email'}
