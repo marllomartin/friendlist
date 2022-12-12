@@ -1,10 +1,10 @@
 import React from 'react';
-import { CardWrapper, CardTextWrapper, CardTextDate, CardTextTitle, CardTextBody, CardStatWrapper, CardStats, LinkText } from './styles';
+import { CardWrapper, CardTextWrapper, CardTextDate, CardTextTitle, CardTextBody, CardStatWrapper, CardButton } from './styles';
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from 'react-icons/hi';
 
 const Friendcard: React.FC<any> = ({ name, username, email, phone, city, website }) => {
   console.log(website);
-  
+
   return (
     <>
       <CardWrapper>
@@ -29,9 +29,9 @@ const Friendcard: React.FC<any> = ({ name, username, email, phone, city, website
           </CardTextBody>
         </CardTextWrapper>
         <CardStatWrapper>
-          <CardStats>
-            <LinkText href={website}>website</LinkText>
-          </CardStats>
+          <CardButton href={website}>
+            Website
+          </CardButton>
         </CardStatWrapper>
       </CardWrapper>
     </>

@@ -75,20 +75,26 @@ export const CardStatWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+  transition: 0.5s;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  background: #3ab34a;
+  background-image: linear-gradient(to right, #4ee762 0%, #85e1bc  51%, #4ee762  100%);
+  background-size: 200% auto;
+
+  :hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+  }
 `;
 
-export const CardStats = styled.div`
+export const CardButton = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  padding: 10px;
-`;
-
-export const LinkText = styled.a`
-  color: #fff;
   text-decoration: none;
+  color: white;
+  font-weight: 700;
+  padding: 10px;
 `;
