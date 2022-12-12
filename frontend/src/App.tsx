@@ -1,11 +1,16 @@
 import React from 'react';
-import LoginLayout from './components/LoginLayout';
+import { Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
+import Friendlist from './pages/Friendlist';
 import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
   return (
     <>
-      <LoginLayout />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/friendlist" element={<Friendlist />} />
+      </Routes>
       <GlobalStyle />
     </>
   );
