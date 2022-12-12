@@ -86,7 +86,7 @@ export const LoaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 60px 60px 30px;
+  margin: 60px 60px 60px;
 
   .span {
   }
