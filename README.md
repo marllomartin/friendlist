@@ -72,7 +72,7 @@ header:
 ```
 | Nome | Descrição | Tipo |
 |:----------|:-------------------|:-------|
-| `authentication` |  O token do usuário que realizou o login. | String |
+| `authorization` |  O token do usuário que realizou o login. | String |
 
 <details><summary>Exemplo de Response</summary>
 
