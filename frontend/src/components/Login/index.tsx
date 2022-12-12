@@ -1,39 +1,54 @@
 import React, { useState } from 'react';
 import { Container, ButtonArea, Form, InputContainer, InputGroup } from './styles';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
+import { login } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
-  const [username, setUsername] = useState<string>('');
+  const [email, setemail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const [passwordShown, setPasswordShown] = useState<boolean>(false);
 
-  const handleChangeUserName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(event.target.value);
+  const history = useNavigate();
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+
+  const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setemail(event.target.value);
   };
 
   const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
-  const togglePassword = () => {
-    setPasswordShown(!passwordShown);
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    await login(email, password)
+      .then((res) => {
+        sessionStorage.setItem('token', JSON.stringify(res.data.token));
+        history('/friendlist');
+      });
   };
 
   return (
     <>
       <Container>
         <header>Login</header>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <InputContainer>
             <InputGroup>
               <input
-                id="username"
-                value={username}
+                id="email"
+                value={email}
                 type="text"
                 autoComplete="off"
-                placeholder={'Nome de usuário'}
-                onChange={handleChangeUserName}
+                spellCheck="false"
+                placeholder={'Email'}
+                onChange={handleChangeEmail}
               />
             </InputGroup>
             <InputGroup>
@@ -46,8 +61,8 @@ const Login: React.FC = () => {
               />
               {
                 !passwordShown ?
-                  <FaRegEye color='#a7a7a7' onClick={togglePassword}></FaRegEye> :
-                  <FaRegEyeSlash color='#a7a7a7' onClick={togglePassword}></FaRegEyeSlash>
+                  <FaRegEye onClick={togglePassword}></FaRegEye> :
+                  <FaRegEyeSlash onClick={togglePassword}></FaRegEyeSlash>
               }
             </InputGroup>
 
