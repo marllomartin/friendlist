@@ -26,15 +26,6 @@ export const Container = styled.div`
     border-radius: 8px;
     background-color: #85e1bc;
   }
-
-  input {
-    margin-top: 30px;
-    border: none;
-    background-color: #ededed;
-    height: 40px;
-    width: 300px;
-    padding-left: 10px;
-  }
 `;
 
 export const Form = styled.form`
@@ -79,6 +70,7 @@ export const InputGroup = styled.div`
   svg {
     right: 0;
     cursor: pointer;
+    color: #a7a7a7;
     margin-top: 5px;
     width: 40px;
     height: 40px;
