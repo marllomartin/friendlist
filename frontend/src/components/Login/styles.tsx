@@ -60,13 +60,6 @@ export const InputGroup = styled.div`
     margin: 5px;
   }
 
-  span {
-    width: 100%;
-    margin-right: -20em;
-    margin-left: 5px;
-    font-size: 15px;
-  }
-
   svg {
     right: 0;
     cursor: pointer;
