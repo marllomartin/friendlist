@@ -5,9 +5,21 @@ import { HiSearch } from 'react-icons/hi';
 import { MoonLoader } from 'react-spinners';
 import Friendcard from '../Friendcard';
 
-const TransactionsList: React.FC = () => {
+interface IFriend {
+  id: number,
+  name: string,
+  username: string,
+  email: string,
+  phone: string,
+  address: {
+    city: string
+  },
+  website: string
+}
+
+const Friendlist: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [friendlist, setFriendlist] = useState<any>([]);
+  const [friendlist, setFriendlist] = useState<IFriend[]>([]);
   const [search, setSearch] = useState<string>('');
 
   const [token] = useState(JSON.parse(sessionStorage.getItem('token') || '{}'));
@@ -61,11 +73,11 @@ const TransactionsList: React.FC = () => {
               <CardContainer>
                 {
                   friendlist
-                    .filter((friend: any) => (
+                    .filter((friend: IFriend) => (
                       friend.name.toLowerCase().includes(search) ||
                       friend.email.toLowerCase().includes(search)
                     ))
-                    .map((friend: any) => {
+                    .map((friend: IFriend) => {
                       return (
                         <Friendcard
                           key={friend.id}
@@ -88,4 +100,4 @@ const TransactionsList: React.FC = () => {
   );
 };
 
-export default TransactionsList;
+export default Friendlist;

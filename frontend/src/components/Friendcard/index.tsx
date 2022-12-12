@@ -2,9 +2,16 @@ import React from 'react';
 import { CardWrapper, CardTextWrapper, CardTextDate, CardTextTitle, CardTextBody, CardStatWrapper, CardButton } from './styles';
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from 'react-icons/hi';
 
-const Friendcard: React.FC<any> = ({ name, username, email, phone, city, website }) => {
-  console.log(website);
+interface IFriend {
+  name: string,
+  username: string,
+  email: string,
+  phone: string,
+  city: string,
+  website: string
+}
 
+const Friendcard: React.FC<IFriend> = ({ name, username, email, phone, city, website }) => {
   return (
     <>
       <CardWrapper>
@@ -29,7 +36,7 @@ const Friendcard: React.FC<any> = ({ name, username, email, phone, city, website
           </CardTextBody>
         </CardTextWrapper>
         <CardStatWrapper>
-          <CardButton href={website}>
+          <CardButton href={`https://${website}`}>
             Website
           </CardButton>
         </CardStatWrapper>
