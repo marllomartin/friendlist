@@ -36,7 +36,7 @@ const Friendcard: React.FC<IFriend> = ({ name, username, email, phone, city, web
           </CardTextBody>
         </CardTextWrapper>
         <CardStatWrapper>
-          <CardButton href={`https://${website}`}>
+          <CardButton href={`//${website}`}>
             Website
           </CardButton>
         </CardStatWrapper>
