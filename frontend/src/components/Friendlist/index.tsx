@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { getFriendlist } from '../../services/api';
+import { Container, SearchContainer, LoaderContainer, NotFound, CardContainer, InputGroup } from './styles';
+import { HiSearch } from 'react-icons/hi';
+import { MoonLoader } from 'react-spinners';
 import Friendcard from '../Friendcard';
-import { Container, SearchContainer, LoaderContainer, NotFound, CardContainer } from './styles';
 
 const TransactionsList: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [friendlist, setFriendlist] = useState<any>('');
-  const [search, setSearch] = useState<any>('');
+  const [friendlist, setFriendlist] = useState<any>([]);
+  const [search, setSearch] = useState<string>('');
 
   const [token] = useState(JSON.parse(sessionStorage.getItem('token') || '{}'));
-
-  console.log(token);
 
   const handleChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -37,17 +37,20 @@ const TransactionsList: React.FC = () => {
     <>
       <SearchContainer>
         <header>Procurar amigo</header>
-        <input
-          type="text"
-          value={search}
-          placeholder="digite o nome ou email do amigo"
-          onChange={handleChangeSearch}
-        />
+        <InputGroup>
+          <input
+            type="text"
+            value={search}
+            placeholder="Digite um nome ou email"
+            onChange={handleChangeSearch}
+          />
+          <HiSearch />
+        </InputGroup>
       </SearchContainer>
       <Container>
         {loading ?
           <LoaderContainer>
-            {/* <ClockLoader color={'black'} /> */}
+            <MoonLoader color={'#606060'} />
           </LoaderContainer>
           :
           <>
@@ -66,9 +69,12 @@ const TransactionsList: React.FC = () => {
                       return (
                         <Friendcard
                           key={friend.id}
+                          username={friend.username}
                           name={friend.name}
-                          email={friend.email}
+                          email={friend.email.toLowerCase()}
                           phone={friend.phone}
+                          city={friend.address.city}
+                          website={friend.website}
                         />
                       );
                     })

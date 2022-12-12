@@ -54,14 +54,31 @@ export const SearchContainer = styled.div`
     border-radius: 8px;
     background-color: #85e1bc;
   }
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+  position: relative;
 
   input {
-    margin-top: 30px;
     border: 1px solid #a7a7a7;
     background-color: white;
-    height: 40px;
-    width: 300px;
-    padding-left: 10px;
+    text-align: center;
+    height: 35px;
+    width: 100%;
+    min-width: 80px;
+    margin: 5px;
+  }
+
+  svg {
+    left: 10px;
+    color: #a7a7a7;
+    margin-top: 10px;
+    width: 25px;
+    height: 25px;
+    position: absolute;
   }
 `;
 
@@ -79,15 +96,6 @@ export const NotFound = styled.div`
     font-size: 20px;
     margin: 50px;
   }
-`;
-
-export const BalanceContainer = styled.div`
-  border-radius: 6px;
-  margin: 15px 10px 20px;
-  padding: 15px;
-  border: 3px solid black;
-  background-color: #fff;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 `;
 
 export const ButtonContainer = styled.div`
@@ -122,7 +130,7 @@ export const ButtonContainer = styled.div`
   }
 `;
 
-export const CardContainer = styled.table`
+export const CardContainer = styled.div`
   display: flex;
   justify-content: center;
   justify-self: center;
