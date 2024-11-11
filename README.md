@@ -4,14 +4,14 @@
     <img width="90%" src="https://github.com/marllomartin/friendlist/blob/main/frontend/public/images/SCREENSHOT.png">
 </p>
 
-## Sobre
-Plataforma simples de exibição de uma lista de amigos desenvolvida para um challenge técnico.
+## About
+A simple platform for displaying a list of friends developed for a technical challenge.
 
-A aplicação full stack conta com uma API REST em NodeJS, uma tela de login e uma tela de listagem de amigos em ReactJS.
+This full stack application includes a REST API in NodeJS, a login screen, and a friend list screen in ReactJS.
 
 **Deploy:** https://friendlist.vercel.app/
 
-## Tecnologias Utilizadas
+## Technologies Used
 #### Back-End
 * [TypeScript](https://www.typescriptlang.org/)
 * [Node.js](https://nodejs.org/en/)
@@ -25,7 +25,7 @@ A aplicação full stack conta com uma API REST em NodeJS, uma tela de login e u
   * [Styled Components](https://styled-components.com/)
   * [Axios](https://axios-http.com/ptbr/docs/intro)
 
-## Documentação da API
+## API Documentation
 
 ### Login
 
@@ -33,7 +33,7 @@ A aplicação full stack conta com uma API REST em NodeJS, uma tela de login e u
   POST /login
 ```
 
-Exemplo de Request:
+Example Request:
 ```
 {
   "email": "user@user",
@@ -42,10 +42,10 @@ Exemplo de Request:
 ```
 | Nome | Descrição | Tipo |
 |:----------|:-------------------|:-------|
-| `email` |  O email de usuário que irá fazer o login. | String |
-| `password` |  A senha do usuário que irá fazer o login. | String |
+| `email` |  The email of the user logging in. | String |
+| `password` | The password of the user logging in. | String |
 
-<details><summary>Exemplo de Response</summary>
+<details><summary>Example Response:</summary>
 
 <br>
 
@@ -63,7 +63,7 @@ Exemplo de Request:
   GET /friendlist
 ```
 
-Exemplo de Request:
+Example Request:
 ```
 header: 
 {
@@ -72,9 +72,9 @@ header:
 ```
 | Nome | Descrição | Tipo |
 |:----------|:-------------------|:-------|
-| `authorization` |  O token do usuário que realizou o login. | String |
+| `authorization` |  The token of the user who logged in. | String |
 
-<details><summary>Exemplo de Response</summary>
+<details><summary>Example Response:</summary>
 
 <br>
 
